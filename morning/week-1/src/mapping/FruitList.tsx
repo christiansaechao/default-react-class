@@ -1,9 +1,4 @@
-import ProblemCard from "../components/ProblemCard";
-
-/**
- * map, filter, reduce
- * array.method(() => )
- */
+import ProblemCard from "../extras/ProblemCard";
 
 export function RenderFruitList() {
   const fruits = ["Apple", "Banana", "Orange"];
@@ -15,6 +10,13 @@ export function RenderFruitList() {
       question="Render each fruit inside an <li>."
       dataPreview={fruits}
     >
+      {/* code here */}
+      {fruits.map((fruit) => (
+        <li>{fruit}</li>
+      ))}
     </ProblemCard>
   );
 }
+
+
+export default RenderFruitList;

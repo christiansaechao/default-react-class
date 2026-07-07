@@ -1,7 +1,20 @@
-import ProblemCard from "../components/ProblemCard";
+import ProblemCard from "../extras/ProblemCard";
+
+// array.filter((item) => conditional)
 
 export const LongWordsOnly = () => {
-  const words = ["tiny", "short", "bigger", "elephant", "cat"];
+  const words = [
+    "tiny",
+    "oranges",
+    "bigger",
+    "elephant",
+    "cat",
+    "giraffe",
+    "tiger",
+    "gorilla",
+  ];
+
+  const filterWord = words.filter((word) => word.length > 4);
 
   return (
     <ProblemCard
@@ -9,6 +22,10 @@ export const LongWordsOnly = () => {
       method="filter"
       question="Render only words longer than 4 characters."
       dataPreview={words}
-    ></ProblemCard>
+    >
+      {filterWord.map((word, index) => (
+        <li key={word + index}>{word}</li>
+      ))}
+    </ProblemCard>
   );
 };

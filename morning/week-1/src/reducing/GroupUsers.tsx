@@ -1,12 +1,28 @@
-import React from 'react'
-import ProblemCard from '../extras/ProblemCard';
+import React from "react";
+import ProblemCard from "../extras/ProblemCard";
 
 export const GroupUsers = () => {
   const users = [
-    { id: 1, name: "Ava", role: "admin" },
-    { id: 2, name: "Noah", role: "user" },
-    { id: 3, name: "Mia", role: "user" },
+    { id: 1, name: "Larry", role: "admin" },
+    { id: 2, name: "Jorge", role: "user" },
+    { id: 3, name: "Karina", role: "user" },
+    { id: 4, name: "Jin", role: "admin" },
+    { id: 5, name: "Bone", role: "admin" },
   ];
+
+  const groupedRoles = users.reduce(
+    (acc: any, curr: any) => {
+      if (curr.role === "admin") {
+        acc.admin.push(curr);
+      } else {
+        acc.user.push(curr);
+      }
+
+      return acc;
+    },
+    { admin: [], user: [] },
+  );
+
   return (
     <ProblemCard
       title="Reduce 06 — Group items"
@@ -15,8 +31,10 @@ export const GroupUsers = () => {
       dataPreview={users}
     >
       <div>
-        {/* TODO: const grouped = users.reduce((acc, u) => {...}, {} as Record<string, typeof users>) */}
+        {/* TODO: const grouped = users.reduce((acc, u) => {...}, {} as Record<string, typeof users>) Admin: , */}
+        {groupedRoles.admin.map(() => )}
+        {groupedRoles.user.map(() => )}
       </div>
     </ProblemCard>
   );
-}
+};
